@@ -1,0 +1,41 @@
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+ 
+.flash-info, .flash-success, .flash-warning, .flash-error {
+margin: 10px 0px;
+padding:12px;
+ 
+}
+.flash-info {
+    color: #00529B;
+    background-color: #BDE5F8;
+}
+.flash-success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+}
+.flash-warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+}
+.flash-error {
+    color: #D8000C;
+    background-color: #FFD2D2;
+}
+.flash-info i, .flash-success i, .flash-warning i, .flash-error i {
+    margin:10px 22px;
+    font-size:2em; 
+    vertical-align:middle; 
+}
+
+form label.error {
+    color: #c00;
+    font-size: 100%;
+    font-weight: bold;
+    font-variant: small-caps;
+    width: 308px;
+    display: none;
+    padding:0px;
+    clear: both;
+}
+
+.radiobuttons label{padding-left: 0.2rem;padding-right: 1.2rem;}

@@ -1,0 +1,231 @@
+{% set currentPath = path(app.request.attributes.get('_route'),
+                       app.request.attributes.get('_route_params')) %}
+                       
+                       
+                       
+                     <div class="pcoded-inner-navbar main-menu">
+                            <ul class="pcoded-item pcoded-left-item">
+                           <li class=" {% if currentPath =='/roompanel/dashboard' %}active pcoded-trigger {% else %}''{% endif %}">
+                                    <a href="{{ url('admin_dashboard') }}">
+                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-mtext">Dashboard</span> 
+                                        
+                                                                           </a>
+                                    
+                                     </li>
+                            </ul>
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li class="pcoded-hasmenu {% if (currentPath =='/roompanel/gallery' or currentPath =='/roompanel/gallery/add')  %}active pcoded-trigger{% else %}''{% endif %}">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-aperture"></i></span>
+                                        <span class="pcoded-mtext" >Gallery</span>                                    </a>
+                                        
+                                        <ul class="pcoded-submenu">
+                                        <li class="">
+                                            <a href="{{ url('admin_add_images') }}">
+                                                <span class="pcoded-mtext">Add Gallery</span>                                            </a>                                        </li>
+                                        <li class="">
+                                            <a href="{{ url('view_gallery') }}">
+                                            <span class="pcoded-mtext">View Gallery</span>  </a> 
+                                       </li>
+                                        
+                                    </ul>
+                                    
+                                </li>
+                              
+                               
+                            </ul>   
+                          
+                           <ul class="pcoded-item pcoded-left-item">
+                                <li class="pcoded-hasmenu {% if (currentPath =='/roompanel/services' or currentPath =='/roompanel/services/add' or currentPath =='/roompanel/services/edit')  %}active pcoded-trigger{% else %}''{% endif %}">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
+                                        <span class="pcoded-mtext" >Services</span>                                    </a>
+                                        
+                                        <ul class="pcoded-submenu">
+                                        <li class="">
+                                            <a href="{{ url('admin_add_services') }}">
+                                                <span class="pcoded-mtext">Add Services</span>                                            </a>                                        </li>
+                                        <li class="">
+                                            <a href="{{ url('view_services') }}">
+                                            <span class="pcoded-mtext">View Services</span>  </a> 
+                                       </li>
+                                        
+                                    </ul>
+                                    
+                                </li>
+                              
+                               
+                            </ul> 
+                            
+                            
+                             <ul class="pcoded-item pcoded-left-item">
+                                <li class="pcoded-hasmenu {% if (currentPath =='/roompanel/property' or currentPath =='/roompanel/property/add' or currentPath =='/roompanel/services/edit')  %}active pcoded-trigger{% else %}''{% endif %}">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="icofont icofont-building"></i></span>
+                                        <span class="pcoded-mtext" >Property</span>                                    </a>
+                                        
+                                        <ul class="pcoded-submenu">
+                                        <li class="">
+                                            <a href="{{ url('admin_add_property') }}">
+                                                <span class="pcoded-mtext">Add Property</span>                                            </a>                                        </li>
+                                        <li class="">
+                                            <a href="{{ url('view_property') }}">
+                                            <span class="pcoded-mtext">View Property</span>  </a> 
+                                       </li>
+                                        
+                                    </ul>
+                                    
+                                </li>
+                              
+                               
+                            </ul> 
+                            
+                              
+                            
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li class="pcoded-hasmenu {% if (currentPath =='/roompanel/users')  %}active pcoded-trigger{% else %}''{% endif %}">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-users"></i></span>
+                                        <span class="pcoded-mtext" >Users</span>                                    </a>
+                                        
+                                        <ul class="pcoded-submenu">
+                                         <li class="">
+                                            <a href="{{ url('add_admin_users') }}">
+                                                <span class="pcoded-mtext">Add Users</span>                                            </a>                                        </li>
+                                        <li class="">
+                                            <a href="{{ url('admin_view_users') }}">
+                                            <span class="pcoded-mtext">View Users</span>  </a> 
+                                       </li>
+                                        
+                                    </ul>
+                                    
+                                </li>
+                              
+                               
+                            </ul>    
+                        
+                      
+                          
+                          <ul class="pcoded-item pcoded-left-item">
+                                <li class="pcoded-hasmenu {% if (currentPath =='/roompanel/events' or currentPath =='/roompanel/events/add')  %}active pcoded-trigger{% else %}''{% endif %}">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="icofont icofont-paperclip"></i></span>
+                                        <span class="pcoded-mtext" >Events</span>                                    </a>
+                                        
+                                        <ul class="pcoded-submenu">
+                                        <li class="">
+                                            <a href="{{ url('admin_add_events') }}">
+                                                <span class="pcoded-mtext">Add Event</span>                                            </a>                                        </li>
+                                        <li class="">
+                                            <a href="{{ url('admin_view_events') }}">
+                                            <span class="pcoded-mtext">View Events</span>  </a> 
+                                       </li>                                        
+                                    </ul>
+                                    
+                                </li>
+                              
+                               
+                            </ul>
+                            
+                             <ul class="pcoded-item pcoded-left-item">
+                            <li class="pcoded-hasmenu {% if (currentPath =='/roompanel/pages' or currentPath =='/roompanel/pages/add')  %}active pcoded-trigger{% else %}''{% endif %}">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="icofont icofont-paperclip"></i></span>
+                                        <span class="pcoded-mtext" >Pages</span>                                    </a>
+                                        
+                                        <ul class="pcoded-submenu">
+                                        <li class="">
+                                            <a href="{{ url('add_page') }}">
+                                                <span class="pcoded-mtext">Add Page</span>                                            </a>                                        </li>
+                                        <li class="">
+                                            <a href="{{ url('view_pages') }}">
+                                            <span class="pcoded-mtext">View Pages</span>  </a> 
+                                       </li>                                        
+                                    </ul>
+                                    
+                                </li>
+                              </ul>
+                             
+                               <ul class="pcoded-item pcoded-left-item">
+                            <li class="pcoded-hasmenu {% if (currentPath =='/roompanel/social_links' or currentPath =='/roompanel/social_links/add')  %}active pcoded-trigger{% else %}''{% endif %}">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="icofont icofont-paperclip"></i></span>
+                                        <span class="pcoded-mtext" >Social Links</span>                                    </a>
+                                        
+                                        <ul class="pcoded-submenu">
+                                        <li class="">
+                                            <a href="{{ url('add_social_link') }}">
+                                                <span class="pcoded-mtext">Add Link</span>                                            </a>                                        </li>
+                                        <li class="">
+                                            <a href="{{ url('view_links') }}">
+                                            <span class="pcoded-mtext">View Links</span>  </a> 
+                                       </li>                                        
+                                    </ul>
+                                    
+                                </li>
+                              </ul>
+                              
+                              
+                             <ul class="pcoded-item pcoded-left-item">
+                                 <li class="pcoded-hasmenu" dropdown-icon="style1" subitem-icon="style1">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-clipboard"></i></span>
+                                        <span class="pcoded-mtext">Others</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                         <li class="{% if (currentPath =='/overseaspanel/enquiries')  %}active pcoded-trigger{% else %}''{% endif %}">
+                                          <a href="{{ url('admin_view_enquiries') }}">
+                                             <span class="pcoded-micon"><i class="icofont icofont-notepad"></i></span>
+                                             <span class="pcoded-mtext" >Enquiries</span>                                    </a>
+                                        
+                                      </li>
+                                        <li class="{% if (currentPath =='/overseaspanel/enquiries' or currentPath =='/overseaspanel/events/add')  %}active pcoded-trigger{% else %}''{% endif %}">
+                                                 <a href="{{ url('admin_users_requests') }}">
+                                              <span class="pcoded-micon"><i class="feather icon-book"></i></span>
+                                              <span class="pcoded-mtext" >Users Service Requests</span>                                    </a>
+                                         </li>
+                                          <li class="{% if (currentPath =='/overseaspanel/payments')  %}active pcoded-trigger{% else %}''{% endif %}">
+                                               <a href="{{ url('admin_users_payments') }}">
+                                             <span class="pcoded-micon"><i class="icofont icofont-cur-dollar"></i></span>
+                                                <span class="pcoded-mtext" >Payments</span>                                    </a>                                        
+                                        
+                                       </li>
+                              
+                                        <li class="{% if (currentPath =='/overseaspanel/vacating')  %}active pcoded-trigger{% else %}''{% endif %}">
+                                             <a href="{{ url('admin_users_vacating') }}">
+                                               <span class="pcoded-micon"><i class="icofont icofont-long-drive"></i></span>
+                                               <span class="pcoded-mtext" >Vacating Users</span>                                    </a>
+                                    
+                                          </li>
+                                    </ul>
+                                </li>
+                                
+                                
+                                 
+                                 
+                                 
+                               
+                            </ul>
+                       
+                      <ul class="pcoded-item pcoded-left-item">
+                            <li class="pcoded-hasmenu {% if (currentPath =='/roompanel/reports/vacating_tenants' or currentPath =='/roompanel/reports/active_tenants')  %}active pcoded-trigger{% else %}''{% endif %}">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="icofont icofont-paperclip"></i></span>
+                                        <span class="pcoded-mtext" >Reports</span>                                    </a>
+                                        
+                                        <ul class="pcoded-submenu">
+                                        <li class="">
+                                            <a href="{{ url('vacating_tenants_report') }}">
+                                                <span class="pcoded-mtext">Tenants Vacating</span>                                            </a>                                        </li>
+                                       <li class="">
+                                            <a href="{{ url('active_tenants_report') }}">
+                                                <span class="pcoded-mtext">Active Tenants</span>                                            </a>                                   </li>                                        
+                                    </ul>
+                                    
+                                </li>
+                              </ul>
+                         
+                         
+                     
+                      </div>                 

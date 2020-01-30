@@ -1,0 +1,15 @@
+  {% set currentPath = path(app.request.attributes.get('_route'),
+                       app.request.attributes.get('_route_params')) %} 
+  {% set isuserlogged_in =commonconfig.getUserSession() %}
+  <li><a href="{{ url('home_page') }}">Home</a></li>
+  {% if isuserlogged_in=='1' %}
+  <li><a href="{{ url('user_dashboard') }}">Dashboard</a></li>
+  <li><a href="{{ url('user_profile') }}">Profile</a></li>
+  <li><a href="{{ url('raise_service_request') }}">Raise Service Request</a></li>
+  <li><a href="{{ url('suggest_service') }}">Suggest Service</a></li>
+  <li><a href="{{ url('refer_friend') }}">Refer a Friend</a></li>
+  <li><a href="#">notice of vacating</a></li>
+  <li><a href="{{ url('user_logout') }}">Logout</a></li>
+  {% else %}
+   <li><a href="{{ url('view_login') }}">Login</a></li>
+  {% endif %}

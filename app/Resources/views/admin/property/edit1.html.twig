@@ -1,0 +1,141 @@
+{% include 'admin/header.html.twig' with {'title': 'Update Property','extra_css':''}  %}
+<body>
+<body>
+<div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+        {% include 'admin/inner_header.html.twig' %}
+		     <!-- Sidebar inner chat start-->
+                   
+            <div class="pcoded-main-container">
+                <div class="pcoded-wrapper">
+                    <nav class="pcoded-navbar">
+                        {% include 'admin/sidebar.html.twig' %}
+                    </nav>                                        
+        <div class="pcoded-content">
+          <div class="pcoded-inner-content">
+            <!-- Main-body start -->
+            <div class="main-body">
+              <div class="page-wrapper">
+                <!-- Page-header start -->
+                <div class="page-header">
+                  <div class="row align-items-end">
+                    <div class="col-lg-8">
+                      <div class="page-header-title">
+                        <div class="d-inline">
+                          <h4>Property</h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="page-header-breadcrumb">
+                        <ul class="breadcrumb-title">
+                          <li class="breadcrumb-item">
+                          <a href="{{ url('admin_dashboard')}}"> <i class="feather icon-home"></i> </a> 
+                          </li>
+                          <li class="breadcrumb-item"><a href="#!">Property</a> </li>
+                          <li class="breadcrumb-item"><a href="#!">Update</a> </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Page-header end -->
+                <!-- Page body start -->
+                <div class="page-body">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <!-- Basic Inputs Validation start -->
+                      <div class="card">
+                        <div class="card-header">   </div>
+                        <div class="card-block">
+                         {{ form_start(form, {
+                      		  'attr': {'id': 'property-form'},
+                      		  'action': path('edit_property', {slug: id}), 'method': 'POST','autocomplete':'off'}
+                              )
+               			   }}   
+                           
+                           <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Title</label>
+                            <div class="col-sm-10">
+                            {{ form_row(form.property_title) }} 
+                              <span class="messages"></span> </div>
+                          </div>
+                        
+                          <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Photo</label>
+                            <div class="col-sm-10">
+                            {{ form_row(form.property_photo) }} 
+                              <span class="messages"></span> </div>
+                          </div>
+                     
+                         <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Address</label>
+                            <div class="col-sm-10">
+                            {{ form_row(form.property_address) }} 
+                              <span class="messages"></span> </div>
+                          </div>
+                      
+                      
+                         <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Lease Start Date</label>
+                            <div class="col-sm-10">
+                            {{ form_row(form.lease_start_date) }} 
+                              <span class="messages"></span> </div>
+                          </div>
+                          
+                           <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Lease End Date</label>
+                            <div class="col-sm-10">
+                            {{ form_row(form.lease_end_date) }} 
+                              <span class="messages"></span> </div>
+                          </div>
+                          
+                          
+                          
+                         <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Tenant Allowed</label>
+                            <div class="col-sm-10">
+                            {{ form_row(form.property_tenant) }} 
+                              <span class="messages"></span> </div>
+                          </div>
+                          
+                           <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Active</label>
+                            <div class="col-sm-10">
+                            {{ form_row(form.property_status) }} 
+                              <span class="messages"></span> </div>
+                          </div> 
+                          
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Description</label>
+                            <div class="col-sm-10">
+                            {{ form_row(form.property_description) }} 
+                              <span class="messages"></span> </div>
+                          </div>
+                          
+					      <div class="form-group row">
+                            <label class="col-sm-2"></label>
+                            <div class="col-sm-10">
+                              {{ form_row(form.Save) }}	
+                            </div>
+                          </div>
+                          {{ form_end(form) }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Page body end -->
+              </div>
+            </div>
+            <!-- Main-body end -->
+          </div>
+        </div>
+            </div>
+       </div>          
+        </div>
+    </div>
+     <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    {% include 'admin/footer.html.twig' with {'extra_js':['assets/ckeditor/ckeditor.js','assets/admin/pages/form-validation/edit_property.js']} %}

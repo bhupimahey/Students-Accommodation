@@ -1,0 +1,13 @@
+<p><h3>You did it! You registered!</h3></p>
+
+<p>Hi {{ customer_name }}! You're successfully registered.</p>
+<p>Login Id : {{ customer_email }}</p>
+<p>Password : {{ customer_password }}</p>
+
+<p>To activate your account, go to: <a href="{{ url('confirm_register', {token: token}) }}">Confirm</a>.</p>
+
+<p>
+Thanks!
+</p>
+
+

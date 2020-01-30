@@ -1,0 +1,199 @@
+{% include 'admin/header.html.twig' with {'title': 'Dashboard','extra_css':''}  %}
+<body>
+ <body>
+<div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+        {% include 'admin/inner_header.html.twig' %}
+		     <!-- Sidebar inner chat start-->
+                   
+            <div class="pcoded-main-container">
+                <div class="pcoded-wrapper">
+                    <nav class="pcoded-navbar">
+                        {% include 'admin/sidebar.html.twig' %}
+                    </nav>
+                    <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                            <div class="main-body">
+                                <div class="page-wrapper">
+                                    <div class="page-body">
+                                       <div class="row">
+                                     		   <div class="col-xl-3 col-md-6">
+                                                <div class="card bg-c-yellow text-white">
+                                                    <div class="card-block">
+                                                        <div class="row align-items-center">
+                                                            <div class="col">
+                                                                <p class="m-b-5">Users</p>
+                                                                <h4 class="m-b-0">{{ total_users }}</h4>
+                                                            </div>
+                                                            <a href="{{ url('admin_view_users') }}">
+                                                            <div class="col col-auto text-right">
+                                                                <i class="feather icon-user f-50 text-c-yellow"></i>
+                                                            </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                       
+                                   		       <div class="col-xl-3 col-md-6">
+                                                <div class="card bg-c-green text-white">
+                                                    <div class="card-block">
+                                                        <div class="row align-items-center">
+                                                            <div class="col">
+                                                                <p class="m-b-5">Enquiries</p>
+                                                                <h4 class="m-b-0">{{ total_enquiries }}</h4>
+                                                            </div>
+                                                             <a href="{{ url('admin_view_enquiries') }}">
+                                                            <div class="col col-auto text-right">
+                                                                <i class="feather icon-credit-card f-50 text-c-green"></i>
+                                                            </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                               <div class="col-xl-3 col-md-6">
+                                                <div class="card bg-c-pink text-white">
+                                                
+                                                    <div class="card-block">
+                                                        <div class="row align-items-center">
+                                                            <div class="col">
+                                                                <p class="m-b-5">Services</p>
+                                                                <h4 class="m-b-0">{{ total_services }}</h4>
+                                                            </div>
+                                                            <a href="{{ url('view_services') }}">
+                                                            <div class="col col-auto text-right">
+                                                            
+                                                                <i class="feather icon-book f-50 text-c-pink"></i>
+                                                              
+                                                        </div>
+                                                          </a>
+                                                            </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            
+                                               <div class="col-xl-3 col-md-6">
+                                                <div class="card bg-c-blue text-white">
+                                                    <div class="card-block">
+                                                        <div class="row align-items-center">
+                                                            <div class="col">
+                                                                <p class="m-b-5">Property</p>
+                                                                <h4 class="m-b-0">{{ total_property }}</h4>
+                                                            </div>
+                                                            <a href="{{ url('view_property') }}">
+                                                            <div class="col col-auto text-right">
+                                                                <i class="feather icon-shopping-cart f-50 text-c-blue"></i>
+                                                            </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                       </div> 
+                                        
+                                       <div class="row">
+                                       <div class="col-xl-6 col-md-12">
+                                                <div class="card table-card">
+                                                    <div class="card-header">
+                                                        <h5>Recent Enquiries</h5>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-hover table-borderless">
+                                                                <thead>
+                                                                    <tr><th></th>
+                                                                        <th>Name</th>
+                                                                        <th>Mobile</th>
+                                                                        <th>Email</th>                                                                        
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                               {% for enquirieslist in all_enquiries %}
+                                                                    <tr>
+                                                                                                        
+                                                                        <td><a href="{{ path('convert_enquiry', {slug:enquirieslist.getEnquiryId}) }}"  class="label label-primary">Convert</a></td>
+                                                                        <td> {{ enquirieslist.getCustomerName|capitalize }}</td>
+                                                                        <td>{{ enquirieslist.getCustomerPhone }}</td>
+                                                                        <td>{{ enquirieslist.getCustomerEmail }}</td>                                                                                                                                           																 </tr>
+                                                                       {% endfor %}
+                                                                </tbody>
+                                                            </table>
+                                                            <div class="text-right m-r-20">
+                                                                <a href="{{ url('admin_view_enquiries') }}" class=" b-b-primary text-primary">View all Enquiries</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                       
+                                       <div class="col-xl-6 col-md-12">
+                                                <div class="card table-card">
+                                                    <div class="card-header">
+                                                        <h5>Recent Property Suggestions</h5>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-hover table-borderless">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Property</th>
+                                                                        <th>Posted By</th>                                                                        <th>Suggestion</th> 
+                                                                        <th>Date</th>
+                                                                        
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    {% for suggestonlist in property_suggestions %}
+                                                                    <tr>
+                                                                                                        
+                                                                       
+                                                                        <td>{{ suggestonlist.property_name }} </td>
+                                                                        <td>{{ suggestonlist.customer_name|capitalize }}</td>
+                                                                        <td>{{ suggestonlist.getSuggestions }}</td>                                                                         <td>{{ suggestonlist.getEntryTime|date('d M, Y') }} </td>                                                                  																 </tr>
+                                                                       {% endfor %}
+                                                                </tbody>
+                                                            </table>
+                                                            <div class="text-right m-r-20">
+                                                                <a href="{{ url('view_property') }}" class=" b-b-primary text-primary">View all Suggestions</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                       </div> 
+                                        
+                                         
+                                    </div>
+                                </div>
+
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+           
+        </div>
+    </div>
+ <script type="text/javascript" src="{{ asset('assets/admin/bower_components/jquery/js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/admin/bower_components/jquery-ui/js/jquery-ui.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/admin/bower_components/popper.js/js/popper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/admin/bower_components/bootstrap/js/bootstrap.min.js') }}"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="{{ asset('assets/admin/bower_components/jquery-slimscroll/js/jquery.slimscroll.js') }}"></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" src="{{ asset('assets/admin/bower_components/modernizr/js/modernizr.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/admin/bower_components/modernizr/js/css-scrollbars.js') }}"></script>
+    <!-- Custom js -->
+    <script src="{{ asset('assets/admin/js/pcoded.min.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/vartical-layout.min.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+ 
+    <script type="text/javascript" src="{{ asset('assets/admin/js/script.js') }}"></script>
+
+</body>
+</html> 

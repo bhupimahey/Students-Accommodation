@@ -1,0 +1,121 @@
+{% set currentPath = path(app.request.attributes.get('_route'),
+                       app.request.attributes.get('_route_params')) %}
+                       
+                       
+                       
+                     <div class="pcoded-inner-navbar main-menu">
+                            <ul class="pcoded-item pcoded-left-item">
+                           <li class=" {% if currentPath =='/dashboard' %}active pcoded-trigger {% else %}''{% endif %}">
+                                    <a href="{{ url('user_dashboard') }}">
+                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-mtext">Dashboard</span> 
+                                        
+                                                                           </a>
+                                    
+                                     </li>
+                            </ul>
+                           
+                           <ul class="pcoded-item pcoded-left-item">
+                           <li class=" {% if currentPath =='/profile' %}active pcoded-trigger {% else %}''{% endif %}">
+                                    <a href="{{ url('user_profile') }}">
+                                        <span class="pcoded-micon"><i class="feather icon-users"></i></span>
+                                        <span class="pcoded-mtext">Profile</span> 
+                                        
+                                                                           </a>
+                                    
+                                     </li>
+                            </ul>
+                            
+                            
+                            
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li class="pcoded-hasmenu {% if (currentPath =='/raise_service_request' or currentPath =='/raise_service_request/view')  %}active pcoded-trigger{% else %}''{% endif %}">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-aperture"></i></span>
+                                        <span class="pcoded-mtext" >Raise Service Request</span>                                    </a>
+                                        
+                                        <ul class="pcoded-submenu">
+                                        <li class="">
+                                            <a href="{{ url('raise_service_request') }}">
+                                                <span class="pcoded-mtext">Add Service Request</span>                                            </a>                                        </li>
+                                        <li class="">
+                                            <a href="{{ url('view_raise_service_request') }}">
+                                            <span class="pcoded-mtext">View Service Requests</span>  </a> 
+                                       </li>
+                                        
+                                    </ul>
+                                    
+                                </li>
+                              
+                               
+                            </ul>   
+                            
+                            
+                            
+                             <ul class="pcoded-item pcoded-left-item">
+                                <li class="pcoded-hasmenu {% if (currentPath =='/suggest_service' or currentPath =='/suggest_service/view')  %}active pcoded-trigger{% else %}''{% endif %}">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-aperture"></i></span>
+                                        <span class="pcoded-mtext" >Suggest Service</span>                                    </a>
+                                        
+                                        <ul class="pcoded-submenu">
+                                        <li class="">
+                                            <a href="{{ url('suggest_service') }}">
+                                                <span class="pcoded-mtext">Add Suggest Service</span>                                            </a>                                        </li>
+                                        <li class="">
+                                            <a href="{{ url('view_suggest_service') }}">
+                                            <span class="pcoded-mtext">View Suggest Services</span>  </a> 
+                                       </li>
+                                        
+                                    </ul>
+                                    
+                                </li>
+                               
+                            </ul>  
+                            
+                            
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li class="pcoded-hasmenu {% if (currentPath =='/vacating_notice' or currentPath =='/vacating_notice/view')  %}active pcoded-trigger{% else %}''{% endif %}">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-aperture"></i></span>
+                                        <span class="pcoded-mtext" >Vacating Request</span>                                    </a>
+                                        
+                                        <ul class="pcoded-submenu">
+                                        <li class="">
+                                            <a href="{{ url('vacating_notice') }}">
+                                                <span class="pcoded-mtext">Add Vacating Request</span>                                            </a>                                        </li>
+                                        <li class="">
+                                            <a href="{{ url('view_vacating_request') }}">
+                                            <span class="pcoded-mtext">View Vacating Request</span>  </a> 
+                                       </li>
+                                        
+                                    </ul>
+                                    
+                                </li>
+                               
+                            </ul>  
+                                
+                            
+                       <ul class="pcoded-item pcoded-left-item">
+                           <li class=" {% if currentPath =='/refer_friend' %}active pcoded-trigger {% else %}''{% endif %}">
+                                    <a href="{{ url('refer_friend') }}">
+                                      <span class="pcoded-micon"><i class="feather icon-users"></i></span>
+                                        <span class="pcoded-mtext">Refer a Friend</span> 
+                                        
+                                                                           </a>
+                                    
+                                     </li>
+                            </ul>  
+                         
+                         <ul class="pcoded-item pcoded-left-item">
+                           <li class=" {% if currentPath =='/user_logout' %}active pcoded-trigger {% else %}''{% endif %}">
+                                    <a href="{{ url('user_logout') }}">
+                                      <span class="pcoded-micon"><i class="feather icon-settings"></i></span>
+                                        <span class="pcoded-mtext">Logout</span> 
+                                        
+                                                                           </a>
+                                    
+                                     </li>
+                            </ul>  
+                        
+                      </div>                 

@@ -1,0 +1,38 @@
+<nav class="navbar header-navbar pcoded-header">
+                <div class="navbar-wrapper">
+
+                    <div class="navbar-logo">
+                        <a class="mobile-menu" id="mobile-collapse" href="#!">
+                        <i class="feather icon-menu icon-toggle-left"></i>
+                    </a>
+                        <a href="{{ url('admin_dashboard') }}">
+                            <img src="{{ asset('assets/images/Logo.png') }}" style="width:50%;">               </a>
+                        <a class="mobile-options">
+                            <i class="feather icon-more-horizontal"></i>                        </a>                    </div>
+
+   					   <div class="navbar-container container-fluid">
+                        
+                        <ul class="nav-right">
+                            
+                      
+                      <li class="user-profile header-notification">
+                                <div class="dropdown-primary dropdown">
+                                    <div class="dropdown-toggle" data-toggle="dropdown">
+                                      
+                                        <span>{{ app.session.get('customer_name') }}</span>
+                                        <i class="feather icon-chevron-down"></i>                                    </div>
+                                    <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut"><li>
+                                            <a href="{{ url('user_change_password') }}">
+                                                <i class="feather icon-settings"></i> Change Password
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ url('user_logout') }}">
+                                                <i class="feather icon-log-out"></i> Logout                                            </a>                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+          </ul>
+                    </div>
+                </div>
+            </nav>           

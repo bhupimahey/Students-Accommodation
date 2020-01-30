@@ -1,0 +1,79 @@
+<section class="menu cid-qMWtT9s6n2" once="menu" id="menu1-m">
+
+    
+
+    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm bg-color transparent">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+        <div class="menu-logo">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <a href="/">
+                        <img src="{{ asset('assets/images/Logo.png') }}" style="width:50%;"> 
+                    </a>
+                </span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="#"></a></span>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true" style="text-transform:uppercase"><!--<li class="nav-item dropdown">
+                    <a class="nav-link link text-black display-4" href="#top">
+                        
+                        Home</a>
+                </li><li class="nav-item">
+                    <a class="nav-link link text-black display-4" href="index.html#header12-p">
+                        
+                        About</a> 
+                </li><li class="nav-item"><a class="nav-link link text-black display-4" href="#">
+                        
+                        Packages</a></li>-->
+                        
+                        <li class="nav-item dropdown  ">
+                        <a class="nav-link link text-black dropdown-toggle display-4" href="#" data-toggle="dropdown-submenu">Our Company</a>
+                                <div class="dropdown-menu"  >
+                                    <a class="text-black dropdown-item display-4" href="{{ url('about_us') }}">About Us</a>
+                                 
+                                    <a class="text-black dropdown-item display-4" href="{{ url('envision') }}">We enVision</a>
+                                    <a class="text-black dropdown-item display-4" href="{{ url('envision') }}#mission">Our Mission</a>
+                                </div>
+                             </li>
+							
+						<li class="nav-item dropdown"><a class="nav-link link text-black dropdown-toggle display-4" href="#" data-toggle="dropdown-submenu">
+                        
+                        Products &amp; Services</a><div class="dropdown-menu"><a class="text-black dropdown-item display-4"  href="{{ url('products') }}">Products</a><a class="text-black dropdown-item display-4" href="{{ url('services') }}">Services</a></div></li>
+						
+						<li class="nav-item dropdown"><a class="nav-link link text-black dropdown-toggle display-4" href="#" data-toggle="dropdown-submenu">
+                        
+                        Help &amp; Support</a><div class="dropdown-menu"> <!-- <a class="text-black dropdown-item display-4" href="#">Service Request</a>--><a class="text-black dropdown-item display-4" href="{{ url('faq') }}">FAQ</a> <a class="text-black dropdown-item display-4" href="{{ url('home_page') }}#Enquiry">Enquiry Form</a><a class="text-black dropdown-item display-4" href="{{ url('contact_us') }}">Contact Us</a><a class="text-black dropdown-item display-4" target="_Blank" href="https://tawk.to/chat/5abb93d6d7591465c708fd46/default/?$_tawk_popout=true&amp;$_tawk_sk=5acad99e7129b6b82bd987dc&amp;$_tawk_tk=5e803c30a192bb0648b4515f4e0c6bb9&amp;v=573">Live Chat</a></div></li>
+						
+						<li class="nav-item dropdown"><a class="nav-link link text-black dropdown-toggle display-4" href="#" data-toggle="dropdown-submenu">
+                        
+                        Legal</a><div class="dropdown-menu"><a class="text-black dropdown-item display-4" href="{{ url('privacy') }}">Privacy Statement</a><a class="text-black dropdown-item display-4" href="{{ url('t_c') }}">T &amp; C</a></div></li>
+                     
+                     
+                 
+                      {% set pages_list =commonconfig.getPagesConfig() %}
+                       {% if pages_list %}                          
+                        {% for page_info in pages_list %}
+                         <li class="nav-item dropdown"> <a class="text-black dropdown-item display-4" href="{{ path('pages', {'page_url': "#{ page_info.getPageUrlTitle }",'page_id': "#{ page_info.getId }" }) }}">{{ page_info.getPageTitle }}</a></li>
+				         {% endfor %}
+                       {% endif %} 
+
+                        </ul>
+
+                        <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-success display-4" href="/login"><!--<span class="mbrib-contact-form mbr-iconfont mbr-iconfont-btn"></span>-->
+                    
+                    MY LOGIN</a></div>
+           
+        </div>
+    </nav>
+</section>
+<br />

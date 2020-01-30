@@ -1,0 +1,278 @@
+{% include 'admin/header.html.twig' with {'title': 'Property Information','extra_css':''}  %}
+<body>
+<body>
+<div id="pcoded" class="pcoded iscollapsed" nav-type="st6" theme-layout="vertical" vertical-placement="left" vertical-layout="wide" pcoded-device-type="desktop" vertical-nav-type="offcanvas" vertical-effect="shrink" vnavigation-view="view1" fream-type="theme1" sidebar-img="false" sidebar-img-type="img1" layout-type="light">
+  <div class="pcoded-overlay-box"></div>
+  <div class="pcoded-container navbar-wrapper"> 
+    <!-- Sidebar inner chat start-->
+    
+    <div class="pcoded-main-container">
+      <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+          <div class="pcoded-inner-content"> 
+            <!-- Main-body start -->
+            <div class="main-body">
+              <div class="page-wrapper">
+                <div class="page-header">
+                  <div class="row align-items-end">
+                    <div class="col-lg-8">
+                      <div class="page-header-title">
+                        <div class="d-inline">
+                          <h4>Property Information</h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="page-header-breadcrumb"> </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="page-body">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="tab-header card">
+                        <ul class="nav nav-tabs md-tabs tab-timeline" role="tablist" id="mytab">
+                          <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#personal" role="tab" aria-expanded="true">Property Basic Info</a>
+                            <div class="slide"></div>
+                          </li>
+                          <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#binfo" role="tab" aria-expanded="false">Property Photos</a>
+                            <div class="slide"></div>
+                          </li>
+                          <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#contacts" role="tab" aria-expanded="false">Property Rooms</a>
+                            <div class="slide"></div>
+                          </li>                          
+                          <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#review" role="tab" aria-expanded="false">Property Rooms Features</a>
+                            <div class="slide"></div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="tab-content">
+                        <div class="tab-pane active" id="personal" role="tabpanel" aria-expanded="true">
+                          <div class="card">
+                            <div class="card-header"> </div>
+                            <div class="card-block">
+                              <div class="view-info">
+                                <div class="row">
+                                  <div class="col-lg-12">
+                                    <div class="general-info">
+                                      <div class="row">
+                                        <div class="col-lg-12 col-xl-6">
+                                          <div class="table-responsive">
+                                            <table class="table m-0">
+                                              <tbody>
+                                                <tr>
+                                                  <th scope="row">Title</th>
+                                                  <td>{{ property_info.getPropertyTitle }}</td>
+                                                </tr>
+                                                <tr>
+                                                  <th scope="row">Type</th>
+                                                  <td>{{ type_of_property["#{property_info.getPropertyType}"] }}</td>
+                                                </tr>
+                                                <tr>
+                                                  <th scope="row">Bedrooms</th>
+                                                  <td>{{ total_bedrooms["#{property_info.getPropertyBedrooms}"] }}</td>
+                                                </tr>
+                                                <tr>
+                                                  <th scope="row">Bathrooms</th>
+                                                  <td>{{ total_bathrooms["#{property_info.getPropertyType}"] }}</td>
+                                                </tr>
+                                                <tr>
+                                                  <th scope="row">Parking</th>
+                                                  <td>{{ parking_status["#{property_info.getPropertyParking}"] }}</td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                        </div>
+                                        <div class="col-lg-12 col-xl-6">
+                                          <div class="table-responsive">
+                                            <table class="table">
+                                              <tbody>
+                                                <tr>
+                                                  <th scope="row">Internet</th>
+                                                  <td>{{ internet_status["#{property_info.getPropertyInternet}"] }}</td>
+                                                </tr>
+                                                <tr>
+                                                  <th scope="row">Stay Length</th>
+                                                  <td>{{ length_of_stay["#{property_info.getMinimumStayLength}"] }}</td>
+                                                </tr>
+                                                <tr>
+                                                  <th scope="row">Total Flatmates</th>
+                                                  <td>{{ total_flatmates["#{property_info.getTotalFlatmates}"] }}</td>
+                                                </tr>
+                                                <tr>
+                                                  <th scope="row">Bond Status</th>
+                                                  <td>{{ bond_status["#{property_info.getBondStatus}"] }}</td>
+                                                </tr>
+                                                <tr>
+                                                  <th scope="row">Bills Status</th>
+                                                  <td>{{ bills_status["#{property_info.getBillsStatus}"] }}</td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                        </div>
+                                        <div class="col-lg-12 col-xl-6">
+                                          <div class="table-responsive">
+                                            <table class="table m-0">
+                                              <tbody>
+                                                <tr>
+                                                  <th scope="row">Flatmates preference</th>
+                                                  <td>{{ flatmatespref_status["#{property_info.getFlatmatesPreference}"] }}</td>
+                                                </tr>
+                                                <tr>
+                                                  <th scope="row">About Flatmates</th>
+                                                  <td>{{ property_info.getAboutFlatmates }}</td>
+                                                </tr>
+                                                <tr>
+                                                  <th scope="row">About Living Property</th>
+                                                  <td>{{ property_info.getAboutLivingProperty }}</td>
+                                                </tr>
+                                                <tr>
+                                                  <th scope="row">Property Address</th>
+                                                  <td>{{ property_info.getPropertyAddress }}</td>
+                                                </tr>
+                                                <tr>
+                                                  <th scope="row">Total Tenants Allowed</th>
+                                                  <td>{{ property_info.getPropertyTenant }}</td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                        </div>
+                                        <div class="col-lg-12 col-xl-6">
+                                          <div class="table-responsive">
+                                            <table class="table">
+                                              <tbody>
+                                                <tr>
+                                                  <th scope="row">Lease Start Date</th>
+                                                  <td>{{ property_info.getLeaseStartDate }}</td>
+                                                </tr>
+                                                <tr>
+                                                  <th scope="row">Lease End Date</th>
+                                                  <td>{{ property_info.getLeaseEndDate }}</td>
+                                                </tr>
+                                                
+                                                <tr>
+                                                  <th scope="row">Available From</th>
+                                                  <td>{{ property_info.getAvailableDate }}</td>
+                                                </tr>
+                                                
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <div class="card">
+                                <div class="card-header">
+                                  <h5 class="card-header-text">Description About Property</h5>
+                                </div>
+                                <div class="card-block user-desc">
+                                  <div class="view-desc"> {{ property_info.getPropertyDescription|raw }} </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="tab-pane" id="binfo" role="tabpanel" aria-expanded="false">
+                          <div class="card">
+                            <div class="card-header">
+                              <h5 class="card-header-text">Property Photos</h5>
+                            </div>
+                            <div class="card-block">
+                              <div class="row"> {% if property_images %}
+                                {% for property_images_list  in  property_images %}
+                                <div class="col-md-6">
+                                  <div class="card b-l-success business-info services m-b-20">
+                                    <div class="card-header">
+                                      <div class="service-header"> </div>
+                                    </div>
+                                    <div class="card-block">
+                                      <div class="row">
+                                        <div class="col-sm-12">
+                                          <p class="task-detail"> <img src="{{ asset('assets/files/property_photos/' ~ property_images_list.getImageName) }}" style="max-width:100%;"> </p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                {% endfor %}
+                                {% endif %} </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="tab-pane" id="contacts" role="tabpanel" aria-expanded="false">
+                          <div class="row">
+                                        <div class="col-lg-12 col-xl-12">
+                                          <div class="table-responsive">
+                                            <table class="table m-0">
+                                              <thead>
+                                                <tr>
+                                                  <th>Room Type</th>
+                                                  <th>Room Furnishings</th>
+                                                  <th>Bathroom Type</th>
+                                                  <th>Room Rent</th>
+                                                </tr>
+                                              </thead>
+                                              
+                                              <tbody>
+                                               {% for property_rooms_list  in  property_rooms %}
+                                                <tr>
+                                                  <td>{{ roomtypes_status["#{property_rooms_list.getRoomType}"] }}</td>
+                                                  <td>{{ roomfurnishings_status["#{property_rooms_list.getRoomFurnishings}"] }}</td>
+                                                  <td>{{ bathrooms_status["#{property_rooms_list.getRoomBathroom}"] }}</td>
+                                                  <td>{{ property_rooms_list.getRoomRent }}</td>
+                                                </tr>
+                                                {% endfor %}
+                                               </tbody>
+                                            </table>
+                                          </div>
+                                        </div>
+                                        
+                                        
+                                        
+                                      </div>
+                        </div>
+                        
+                        <div class="tab-pane" id="review" role="tabpanel" aria-expanded="false">
+                          <div class="row">
+                                        <div class="col-lg-12 col-xl-12">
+                                          <div class="table-responsive">
+                                            <table class="table m-0">                                              
+                                              <tbody>
+                                            {% for room_furnishing_key,room_furnishing_value in room_furnishings_feature_val %}  												<tr>
+                                                  <td>{{ room_furnishing_features["#{room_furnishing_value}"] }}</td>
+                                                </tr>
+                                                {% endfor %}
+                                               </tbody>
+                                            </table>
+                                          </div>
+                                        </div>
+                                        
+                                        
+                                        
+                                      </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Main-body end --> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script> 
+{% include 'admin/footer.html.twig' with {'extra_js':['assets/pages/user-profile.js']} %}

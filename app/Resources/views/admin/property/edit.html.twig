@@ -1,0 +1,379 @@
+{% include 'admin/header.html.twig' with {'title': 'Update Property','extra_css':'assets/jsupload/js/jquery.plupload.queue/css/jquery.plupload.queue.css'}  %}
+<body>
+<body>
+<div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+        {% include 'admin/inner_header.html.twig' %}
+		     <!-- Sidebar inner chat start-->
+                   
+            <div class="pcoded-main-container">
+                <div class="pcoded-wrapper">
+                    <nav class="pcoded-navbar">
+                        {% include 'admin/sidebar.html.twig' %}
+                    </nav>                                        
+        <div class="pcoded-content">
+          <div class="pcoded-inner-content">
+            <!-- Main-body start -->
+            <div class="main-body">
+              <div class="page-wrapper">
+                <!-- Page-header start -->
+                <div class="page-header">
+                  <div class="row align-items-end">
+                    <div class="col-lg-8">
+                      <div class="page-header-title">
+                        <div class="d-inline">
+                          <h4>Property</h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="page-header-breadcrumb">
+                        <ul class="breadcrumb-title">
+                          <li class="breadcrumb-item"> <a href="{{ url('admin_dashboard')}}"> <i class="feather icon-home"></i> </a> </li>
+                          <li class="breadcrumb-item"><a href="#!">Property</a> </li>
+                          <li class="breadcrumb-item"><a href="#!">Update</a> </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Page-header end -->
+                <!-- Page body start -->
+                <div class="page-body">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <!-- Basic Inputs Validation start -->
+                      <div class="card">
+                        <div class="card-header">   </div>
+                        <div class="card-block">
+                            {{ form_start(form, {
+                      		  'attr': {'id': 'property-form'},
+                      		  'action': path('edit_property', {slug: id}), 'method': 'POST','autocomplete':'off'}
+                              )
+               			     }} 
+                           <div class="form-group row">
+                            <div class="col-sm-6">
+                                <label class="col-form-label">Title</label>
+                                <div class="col-sm-12">
+                                {{ form_row(form.property_title) }} 
+                                 <span class="messages"></span>
+                                 </div>
+                            </div>   
+                               
+                           <div class="col-sm-6">
+                               <label class="col-form-label">Type Of Property</label>
+                               <div class="col-sm-12">
+                                 {{ form_row(form.property_type) }} 
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>       
+                        
+                          </div>
+                        
+                        <div class="form-group row">
+                           <div class="col-sm-6">
+                               <label class="col-form-label">Address</label>
+                               <div class="col-sm-12">
+                                 {{ form_row(form.property_address) }} 
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>      
+                             <div class="col-sm-6">
+                               <label class="col-form-label">Total Bedrooms</label>
+                               <div class="col-sm-12">
+                                 {{ form_row(form.property_bedrooms) }} 
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>    
+                          </div>
+                        
+                           <div class="form-group row">
+                            <div class="col-sm-6">
+                               <label class="col-form-label">Total Bathrooms</label>
+                               <div class="col-sm-12">
+                                 {{ form_row(form.property_bathrooms) }} 
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>    
+                           <div class="col-sm-6">
+                               <label class="col-form-label">Parking</label>
+                               <div class="col-sm-12">
+                                 {{ form_row(form.property_parking) }} 
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>       
+                          </div>
+                         
+                          <div class="form-group row">
+                            <div class="col-sm-6">
+                               <label class="col-form-label">Internet</label>
+                               <div class="col-sm-12">
+                                 {{ form_row(form.property_internet) }} 
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>    
+                           <div class="col-sm-6">
+                               <label class="col-form-label">Total Flatmates</label>
+                               <div class="col-sm-12">
+                                 {{ form_row(form.total_flatmates) }} 
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>       
+                          </div>
+                          
+                          <div class="form-group row">
+                            <div class="col-sm-6">
+                               <label class="col-form-label">Bond</label>
+                               <div class="col-sm-12">
+                                 {{ form_row(form.bond_status) }} 
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>    
+                           <div class="col-sm-6">
+                               <label class="col-form-label">Bills</label>
+                               <div class="col-sm-12">
+                                 {{ form_row(form.bills_status) }} 
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>       
+                          </div>
+                         {% set rooms_counter = 500 %}
+                          {% for roomslist in property_rooms %}
+                           {% set rooms_counter = rooms_counter + 1 %}
+                         <div class="form-group row roomdiv" id="mainrow{{ rooms_counter }}">
+                            <div class="col-sm-3">
+                               <label class="col-form-label">Room Type</label>
+                               <div class="col-sm-12">
+                                   <select  name="prop_room_type[]" class="form-control">
+                                    {% for room_key,room_value in room_types %}
+                                       {% if roomslist.getRoomType=="#{ room_value }" %}
+                                       <option value="{{ room_value }}" selected>{{ room_key }}</option>
+                                       {% else %}
+                                         <option value="{{ room_value }}">{{ room_key }}</option>
+                                       {% endif %}
+                                     {% endfor %} </select>
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>    
+                            <div class="col-sm-3">
+                               <label class="col-form-label">Room Furnishings</label>
+                               <div class="col-sm-12">
+                                <select  name="prop_room_furnishings[]" class="form-control">
+                                    {% for room_furnishings_key,room_furnishings_value in room_furnishings_list %}
+                                       {% if roomslist.getRoomFurnishings=="#{ room_furnishings_value }" %}
+                                       <option value="{{ room_furnishings_value }}" selected>{{ room_furnishings_key }}</option>
+                                       {% else %}
+                                         <option value="{{ room_furnishings_value }}">{{ room_furnishings_key }}</option>
+                                       {% endif %}
+                                     {% endfor %} </select>
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>   
+                            <div class="col-sm-2">
+                               <label class="col-form-label">Bathoom</label>
+                               <div class="col-sm-12">
+                                <select  name="prop_room_bathroom[]" class="form-control">
+                                    {% for room_bathroom_key,room_bathroom_value in room_bathroom_list %}
+                                       {% if roomslist.getRoomBathroom=="#{ room_bathroom_value }" %}
+                                       <option value="{{ room_bathroom_value }}" selected>{{ room_bathroom_key }}</option>
+                                       {% else %}
+                                         <option value="{{ room_bathroom_value }}">{{ room_bathroom_key }}</option>
+                                       {% endif %}
+                                     {% endfor %} </select>
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>  
+                            <div class="col-sm-2">
+                               <label class="col-form-label">Rent</label>
+                               <div class="col-sm-12">
+                                <input type="text" name="prop_room_rent[]" class="form-control" value="{{ roomslist.getRoomRent }}">
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>
+                            <div class="col-sm-2 removediv">
+                               <label class="col-form-label"><br></label>
+                               <div class="col-sm-12">
+                                 <button type="button" class="btn btn-primary btn-sm remove_room" data-id="{{ rooms_counter }}">Remove Room</button>
+                                  </div>
+                            </div>
+                          </div>
+                          {% endfor %}
+                          
+                          <div class="form-group row roominsertdiv"></div>
+                          
+                          <div class="form-group row">
+                            <div class="col-sm-6">
+                               <label class="col-form-label">Minimum length of stay</label>
+                               <div class="col-sm-12">
+                                 {{ form_row(form.minimum_stay_length) }} 
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>    
+                           <div class="col-sm-6">
+                               <label class="col-form-label">Room furnishings and features(multiple)</label>
+                               <div class="col-sm-12">
+                                 {{ form_row(form.room_furnishings_features) }} 
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>       
+                          </div>
+                     
+                     
+                     <div class="form-group row">
+                            <div class="col-sm-4">
+                               <label class="col-form-label">Lease Start Date</label>
+                               <div class="col-sm-12">
+                                  {{ form_row(form.lease_start_date) }}
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>    
+                           <div class="col-sm-4">
+                               <label class="col-form-label">Lease End Date</label>
+                               <div class="col-sm-12">
+                                 {{ form_row(form.lease_end_date) }} 
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>    
+                            
+                            <div class="col-sm-4">
+                               <label class="col-form-label">Available Date</label>
+                               <div class="col-sm-12">
+                                 {{ form_row(form.available_date) }} 
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>   
+                          </div>
+                          
+                      <div class="form-group row">
+                            <div class="col-sm-6">
+                               <label class="col-form-label">Tenant Allowed</label>
+                               <div class="col-sm-12">
+                                  {{ form_row(form.property_tenant) }} 
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>    
+                           <div class="col-sm-6">
+                               <label class="col-form-label">Active</label>
+                               <div class="col-sm-12">
+                                   <input type="hidden" name="aoccupants" id="aoccupants" value="{{ active_occupants }}">
+                                 {{ form_row(form.property_status) }} 
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>       
+                          </div>
+                          
+                     <div class="form-group row">
+                            <div class="col-sm-12">
+                               <label class="col-form-label">Images(multiple)</label>
+                               <div class="col-sm-12">
+                                   <div id="uploader">
+                                     <p>Your browser doesn't HTML5 support.</p>
+                                    </div>
+                            
+                                  <span class="messages"></span>
+                                  </div>
+                               
+                            </div>    
+                           
+                          </div>
+                  
+                  <div class="form-group row">
+                            <div class="col-sm-12">
+                               <label class="col-form-label">Flatmate Preference</label>
+                               <div class="col-sm-12">
+                                 {{ form_row(form.flatmatespref) }} 
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>    
+                            
+                          </div>   
+                     
+                       <div class="form-group row">
+                            <div class="col-sm-12">
+                               <label class="col-form-label">Tell us about you and your flatmates</label>
+                               <div class="col-sm-12">
+                                  {{ form_row(form.about_flatmates) }} 
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>    
+                            
+                          </div>
+                          
+                      <div class="form-group row">
+                            <div class="col-sm-12">
+                               <label class="col-form-label">What's great about living at this property?</label>
+                               <div class="col-sm-12">
+                                  {{ form_row(form.about_living_property) }} 
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>    
+                             
+                          </div>
+                       
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                               <label class="col-form-label">Description</label>
+                               <div class="col-sm-12">
+                                  {{ form_row(form.property_description) }} 
+                                  <span class="messages"></span>
+                                  </div>
+                            </div>    
+                             
+                          </div>
+                          
+                       
+                         <div class="form-group row">
+                            <div class="col-sm-12">
+                               <label class="col-form-label"></label>
+                               <div class="col-sm-12">
+                                 {{ form_row(form.Save) }}	
+                                  </div>
+                            </div>    
+                             
+                          </div>   
+                          {{ form_end(form) }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Page body end -->
+              </div>
+            </div>
+            <!-- Main-body end -->
+          </div>
+        </div>
+            </div>
+       </div>          
+        </div>
+    </div>
+    <style>
+.imageThumb {
+  max-height: 112px;
+  border: 2px solid;
+  padding: 1px;
+  cursor: pointer;
+}
+.pip {
+  display: inline-block;
+  margin: 10px 10px 0 0;
+}
+.remove {
+  display: block;
+  background: #444;
+  border: 1px solid black;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+.remove:hover {
+  background: white;
+  color: black;
+}
+
+</style>
+
+    <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+   {% include 'admin/footer.html.twig' with {'extra_js':['assets/jsupload/js/plupload.full.min.js','assets/jsupload/js/jquery.plupload.queue/jquery.plupload.queue.min.js','assets/admin/pages/form-validation/property.js','assets/admin/js/imagesupload.js','assets/ckeditor/ckeditor.js']} %}

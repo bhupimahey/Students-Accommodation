@@ -1,0 +1,195 @@
+    <script   type="text/javascript"src="//code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="{{ asset('assets/admin/bower_components/jquery/js/jquery.min.js') }}"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+    
+    <script type="text/javascript" src="{{ asset('assets/admin/bower_components/jquery-ui/js/jquery-ui.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/admin/bower_components/popper.js/js/popper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/admin/bower_components/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/admin/bower_components/jquery-slimscroll/js/jquery.slimscroll.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/admin/bower_components/modernizr/js/modernizr.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/admin/bower_components/modernizr/js/css-scrollbars.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/admin/bower_components/i18next/js/i18next.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/admin/bower_components/i18next-xhr-backend/js/i18nextXHRBackend.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/admin/bower_components/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/admin/bower_components/jquery-i18next/js/jquery-i18next.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/admin/js/script.js') }}"></script>
+	
+	<script type="text/javascript" src="{{ asset('assets/admin/js/pcoded.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('assets/admin/js/vartical-layout.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('assets/admin/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+	
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+   	{% if extra_js !='' %}
+	{% for extra_js_val in extra_js %}
+    <script type="text/javascript" src="{{ asset("#{extra_js_val}" ) }}"></script>
+    {% endfor %}
+	{% endif %}	
+
+<script>
+
+function delaction(delete_link){	
+$('#confirm').modal({
+      backdrop: 'static',
+      keyboard: false
+    })
+    .one('click', '#delete', function() {
+		window.location.href = delete_link;
+    });
+	return false;
+}
+
+</script>
+
+<div class="modal fade" id="confirm" tabindex="-1" role="basic" aria-hidden="true">
+
+  <div class="modal-dialog">
+
+    <div class="modal-content" >
+
+      <div class="modal-header">
+
+        <h4 class="modal-title"> Are you sure?</h4>
+
+      </div>
+
+      <div class="modal-footer">
+
+        <button type="button" data-dismiss="modal" class="btn btn-primary" id="delete">Delete</button>
+
+        <button type="button" data-dismiss="modal" class="btn">Cancel</button>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="modal fade" id="cleandate_modal" tabindex="-1" role="basic" aria-hidden="true">
+
+  <div class="modal-dialog">
+
+    <div class="modal-content" >
+
+      <div class="modal-header">
+
+        <h4 class="modal-title">Cleaning Date Information</h4>
+
+      </div>
+      
+      <div class="modal-body">
+        <p><input type="date" name="clean_date" id="clean_date" class="form-control" required="required" /></p>
+        <p><textarea name="clean_notes" id="clean_notes" class="form-control" placeholder="Add Notes"></textarea></p>
+      </div>
+
+      <div class="modal-footer">
+
+        <button type="button" data-dismiss="modal" class="btn btn-primary" id="save_dates">Save</button>
+
+        <button type="button" data-dismiss="modal" class="btn">Cancel</button>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<div class="modal fade" id="property_usersmail_modal" tabindex="-1" role="basic" aria-hidden="true">
+
+  <div class="modal-dialog modal-lg">
+
+    <div class="modal-content" >
+
+      <div class="modal-header">
+
+        <h4 class="modal-title">Mail Information</h4>
+
+      </div>
+      
+      <div class="modal-body">
+        <p><input type="text" name="property_mail_subject" id="property_mail_subject" class="form-control" placeholder="Subject"></p>  
+        <p><input type="email" name="property_mail_cc" id="property_mail_cc" class="form-control" placeholder="CC" value="admin@prestigeaccommodation.com.au"></p>  
+       <p><input type="file" name="property_mail_attachment" id="property_mail_attachment" accept="application/pdf, image/gif, image/jpeg,image/png" /></p>
+        <p><textarea name="property_mail_content" id="property_mail_content" class="form-control ckeditor" placeholder="Mail content"></textarea></p>
+      </div>
+
+      <div class="modal-footer">
+
+        <button type="button" data-dismiss="modal" class="btn btn-primary" id="sendproperty_usermail_btn">Send</button>
+
+        <button type="button" data-dismiss="modal" class="btn" id="sendproperty_usermail_cancel_btn">Cancel</button>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+<div class="modal fade" id="usersmail_modal" tabindex="-1" role="basic" aria-hidden="true">
+
+  <div class="modal-dialog modal-lg">
+
+    <div class="modal-content" >
+
+      <div class="modal-header">
+
+        <h4 class="modal-title">Mail Information</h4>
+
+      </div>
+      
+      <div class="modal-body">
+        <p><input type="text" name="mail_subject" id="mail_subject" class="form-control" placeholder="Subject"></p>  
+        <p><input type="email" name="mail_cc" id="mail_cc" class="form-control" placeholder="CC" value="admin@prestigeaccommodation.com.au"></p>  
+        <p><input type="file" name="mail_attachment" id="mail_attachment" accept="application/pdf, image/gif, image/jpeg,image/png" /></p>
+        <p><textarea name="mail_content" id="mail_content" class="form-control ckeditor" placeholder="Mail content"></textarea></p>
+      </div>
+
+      <div class="modal-footer">
+
+        <button type="button"  data-dismiss="modal" class="btn btn-primary" id="sendusermail_btn">Send</button>
+
+        <button type="button" data-dismiss="modal" class="btn" id="sendusermail_cncl_btn">Cancel</button>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+<div class="modal fade" id="tenants_usersmail_modal" tabindex="-1" role="basic" aria-hidden="true">
+
+  <div class="modal-dialog modal-lg">
+
+    <div class="modal-content" >
+
+      <div class="modal-header">
+
+        <h4 class="modal-title">Mail Information</h4>
+
+      </div>
+      
+      <div class="modal-body">
+        <p><input type="text" name="tenant_mail_subject" id="tenant_mail_subject" class="form-control" placeholder="Subject"></p>  
+        <p><input type="email" name="tenant_mail_cc" id="tenant_mail_cc" class="form-control" placeholder="CC" value="admin@prestigeaccommodation.com.au"></p>  
+        <p><input type="file" name="tenant_mail_attachment" id="tenant_mail_attachment" accept="application/pdf, image/gif, image/jpeg,image/png" /></p>
+        <p><textarea name="tenant_mail_content" id="tenant_mail_content" class="form-control ckeditor" placeholder="Mail content"></textarea></p>
+      </div>
+
+      <div class="modal-footer">
+
+        <button type="button" data-dismiss="modal" class="btn btn-primary" id="sendtenants_usermail_btn">Send</button>
+
+        <button type="button" data-dismiss="modal" class="btn" id="sendtenants_usermail_cncl_btn">Cancel</button>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</body></html>

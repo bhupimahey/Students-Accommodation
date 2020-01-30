@@ -1,0 +1,20 @@
+{% if maxPages > 1 %}
+<ul class="pagination pagination-sm">
+    {# "«" arrow  #}
+    <li {{ thisPage == 1 ? 'class="disabled"' }}>
+        <a href="{{ path(routname, {page: thisPage-1 < 1 ? 1 : thisPage-1}) }}&filter_name={{ filter_name }}&filter_value={{ filter_value }}&filter2_name={{ filter2_name }}&filter2_value={{ filter2_value }}&filter3_name={{ filter3_name }}&filter3_value={{ filter3_value }}">«</a>
+    </li>
+
+    {# Render each page number #}
+    {% for i in 1..maxPages %}
+    <li {{ thisPage == i ? 'class="active"' }}>
+    <a href="{{ path(routname, {page: i}) }}&filter_name={{ filter_name }}&filter_value={{ filter_value }}&filter2_name={{ filter2_name }}&filter2_value={{ filter2_value }}&filter3_name={{ filter3_name }}&filter3_value={{ filter3_value }}">{{ i }}</a>
+    </li>
+    {% endfor %}
+
+    {# "»" arrow #}
+    <li {{ thisPage == maxPages ? 'class="disabled"' }}>
+        <a href="{{ path(routname, {page: thisPage+1 <= maxPages ? thisPage+1 : thisPage}) }}&filter_name={{ filter_name }}&filter_value={{ filter_value }}&filter2_name={{ filter2_name }}&filter2_value={{ filter2_value }}&filter3_name={{ filter3_name }}&filter3_value={{ filter3_value }}">»</a>
+    </li>
+</ul>
+{% endif %}
